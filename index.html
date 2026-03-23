@@ -12,13 +12,13 @@
 
 <div class="signboard-container" id="signboard">
     <h1 class="signboard-title">電力系統作業告示牌</h1>
-    
+
     <table class="table table-bordered mb-0">
         <tbody>
             <tr>
                 <td class="label-cell">作業日期(WWN)：</td>
                 <td class="input-cell">
-                    <input type="text" id="workDate" class="form-control" placeholder="請輸入日期">
+                    <input type="date" id="workDate" class="form-control">
                 </td>
             </tr>
             <tr>
@@ -30,7 +30,82 @@
             <tr>
                 <td class="label-cell">WPS：</td>
                 <td class="input-cell">
-                    <input type="text" id="wps" class="form-control" placeholder="請輸入 WPS">
+                    <!-- 編輯模式顯示：複選框 + 輸入框 -->
+                    <div class="d-flex flex-wrap align-items-center gap-3 p-1 d-print-none">
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="鄭慶國" id="wps1" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps1">鄭慶國</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="蔡秉蒼" id="wps2" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps2">蔡秉蒼</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="張文重" id="wps3" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps3">張文重</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="林清勝" id="wps4" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps4">林清勝</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="彭光宇" id="wps5" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps5">彭光宇</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="梁幸男" id="wps6" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps6">梁幸男</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="王長民" id="wps7" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps7">王長民</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="劉士傑" id="wps8" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps8">劉士傑</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="黃國致" id="wps9" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps9">黃國致</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="賴廷豪" id="wps10" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps10">賴廷豪</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="楊鴻文" id="wps11" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps11">楊鴻文</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="許碩恩" id="wps12" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps12">許碩恩</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="潘彥昇" id="wps13" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps13">潘彥昇</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="江尚陽" id="wps14" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps14">江尚陽</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="許少勇" id="wps15" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps15">許少勇</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="謝國順" id="wps16" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps16">謝國順</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input wps-checkbox" type="checkbox" value="王元均" id="wps17" onchange="updateWpsPrintText()">
+                            <label class="form-check-label" for="wps17">王元均</label>
+                        </div>
+                        <div class="flex-grow-1">
+                            <input type="text" id="wpsOther" class="form-control border-bottom" style="border: none; border-bottom: 1px solid #ccc !important;" placeholder="其他自定義選項" oninput="updateWpsPrintText()">
+                        </div>
+                    </div>
+                    <!-- 列印模式顯示：純文字 -->
+                    <div id="wpsPrintText" class="print-text"></div>
                 </td>
             </tr>
             <tr>
@@ -58,11 +133,12 @@
 1. 作業位置/變電站/逃生梯里程確認
 2. 作業分工
 3. 注意事項及指差確認
-4. 重點安全宣導" ></textarea>
+4. 重點安全宣導"></textarea>
                 </td>
             </tr>
         </tbody>
     </table>
+
 
     <div class="button-group no-print mt-5 ">
         <button class="btn btn-primary btn-custom" onclick="saveData()">儲存內容</button>

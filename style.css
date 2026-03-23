@@ -1,4 +1,4 @@
-  body {
+     body {
             background-color: #f8f9fa;
             font-family: "Microsoft JhengHei", sans-serif;
             padding: 20px;
@@ -58,9 +58,24 @@
             padding: 12px;
             font-size: 1.1rem;
         }
+        .print-text {
+            display: none;
+        }
         @media print {
             .button-group, .no-print {
                 display: none;
+            }
+            .d-print-none {
+                display: none !important;
+            }
+            .print-text {
+                display: block;
+                min-height: 1.5rem;
+            }
+            .form-control {
+                border: none !important;
+                padding: 0 !important;
+                background-color: transparent !important;
             }
             body {
                 background: white;
@@ -71,5 +86,6 @@
                 border: none;
                 width: 100%;
                 max-width: none;
+                padding: 20px;
             }
         }
