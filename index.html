@@ -138,11 +138,63 @@
             </tr>
         </tbody>
     </table>
+    
+    <div class="preview d-none">
+            <table class="table table-bordered mb-0">
+        <tbody>
+            <tr>
+                <td class="label-cell">作業日期(WWN)：</td>
+                <td class="input-cell">
+                    <span id="previewWorkDate"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">基地別：</td>
+                <td class="input-cell">
+                    <span id="previewBase"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">WPS：</td>
+                <td class="input-cell">
+                    <span id="previewWps"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell" style="height: 150px;">作業內容：</td>
+                <td class="input-cell">
+                    <span id="previewWorkContent"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">作業里程/位置：</td>
+                <td class="input-cell">
+                    <span id="previewLocation"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">出勤人數：</td>
+                <td class="input-cell">
+                    <span id="previewPersonnelCount"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">備註：</td>
+                <td class="input-cell">
+                    <span id="previewRemarks"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    </div>
 
 
-    <div class="button-group no-print mt-5 ">
+    <div class="button-group no-print mt-5">
         <button class="btn btn-primary btn-custom" onclick="saveData()">儲存內容</button>
         <button class="btn btn-danger btn-custom" onclick="clearData()">清空內容</button>
+        <button class="btn btn-warning btn-custom" onclick="preview()">預覽</button>
+        <button class="btn btn-secondary btn-custom d-none " id="backBtn" onclick="backToEdit()">返回</button>
         <button class="btn btn-outline-secondary btn-custom" onclick="window.print()">列印告示牌</button>
     </div>
 </div>

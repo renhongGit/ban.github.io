@@ -96,3 +96,43 @@
             document.getElementById('workDate').value = getTodayDate();
         }
     }
+
+    // 預覽功能
+    function preview() {
+        // 複製數據到預覽區域
+        document.getElementById('previewWorkDate').innerText = document.getElementById('workDate').value || '';
+        document.getElementById('previewBase').innerText = document.getElementById('baseType').value || '';
+        
+        // 處理WPS選項
+        const selectedWps = [];
+        document.querySelectorAll('.wps-checkbox:checked').forEach(cb => {
+            selectedWps.push(cb.value);
+        });
+        const other = document.getElementById('wpsOther').value.trim();
+        if (other) selectedWps.push(other);
+        document.getElementById('previewWps').innerText = selectedWps.join('、');
+        
+        document.getElementById('previewWorkContent').innerHTML = (document.getElementById('workContent').value || '').replace(/\n/g, '<br>');
+        document.getElementById('previewLocation').innerText = document.getElementById('location').value || '';
+        document.getElementById('previewPersonnelCount').innerText = document.getElementById('personnelCount').value || '';
+        document.getElementById('previewRemarks').innerHTML = (document.getElementById('remarks').value || '').replace(/\n/g, '<br>');
+        
+        // 切換到預覽模式
+        document.querySelector('.signboard-container table').style.display = 'none';
+        document.querySelector('.preview').classList.remove('d-none');
+        
+        // 隱藏編輯按鈕，顯示返回按鈕
+        document.querySelectorAll('.button-group button:not(#backBtn)').forEach(btn => btn.style.display = 'none');
+        document.getElementById('backBtn').classList.remove('d-none');
+    }
+
+    // 返回編輯模式
+    function backToEdit() {
+        // 切換回編輯模式
+        document.querySelector('.signboard-container table').style.display = '';
+        document.querySelector('.preview').classList.add('d-none');
+        
+        // 顯示編輯按鈕，隱藏返回按鈕
+        document.querySelectorAll('.button-group button:not(#backBtn)').forEach(btn => btn.style.display = '');
+        document.getElementById('backBtn').classList.add('d-none');
+    }
